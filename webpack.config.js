@@ -46,7 +46,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 // add below
 
 module.exports = {
-  entry: './client/index.ts',
+  entry: './client/index.tsx',
   module: {
     rules: [
       {
@@ -54,6 +54,16 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      // {
+      //   test: /\.ts$|tsx/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env', '@babel/preset-react'],
+      //     },
+      //   },
+      // },
       {
         test: /.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
@@ -79,7 +89,7 @@ module.exports = {
     },
     port: 8080,
     proxy: {
-      context: ['/'],
+      context: ['/api'],
       target: 'http://localhost:3000',
     },
   },
