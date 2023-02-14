@@ -9,10 +9,10 @@ export default function Home() {
         <>
           <h2>hello world</h2>
           
-            {/* <Header />
-            ternary
+            <Header />
+            {/* ternary */}
             <Customer />
-            <Admin /> */}
+            {/* <Admin /> */}
         </>
     )
 
