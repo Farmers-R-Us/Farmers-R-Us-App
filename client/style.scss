@@ -10,20 +10,19 @@ h2 {
 .container {
   display: flex;
   justify-content: center;
+
+  height: 50rem;
+  min-width: 50rem;
+  max-width: 80%;
   margin: auto;
-  height: 80%;
-  width: 80%;
   border: 1px solid black; 
 }
-.login {
-  height: 80%;
-  width: 80%;
-  background-image: url('./assets/background_marketv2.jpg'); 
-  background-size: 100% 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .main-bg {
+//   height: 50px;
+//   width: 50px;
+//   background-image: url('./assets/background_marketv2.jpg'); 
+
+// }
 
 .whiteModal {
   border: red solid 2px;
@@ -37,5 +36,19 @@ h2 {
 }
 
 .navBar {
-  
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  background: #6B911B;
+  align-items: center;
+  padding: 20px;
+}
+
+.btn {
+  width: 8rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background: #D9D40C;
 }

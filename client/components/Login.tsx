@@ -1,4 +1,5 @@
 import React from 'react';
+
 // import { Routes, Route } from 'react-router-dom';
 
 
@@ -6,7 +7,7 @@ export default function Login() {
     return (
     <div className='container'>
 
-        <div className="login">
+        <div className='main-bg'>
             <div className="whiteModal">
                 <h2>LOGIN</h2>
                 <div>
