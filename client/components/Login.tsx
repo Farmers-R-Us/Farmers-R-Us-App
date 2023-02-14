@@ -8,7 +8,7 @@ export default function Login() {
         <div className="whiteModal">
             <h2>LOGIN</h2>
             <div>
-                <div id="g_id_onload"
+                {/* <div id="g_id_onload"
                     data-client_id="277472323209-6vvv21f4emad9157i1r13i14eq9jcujb.apps.googleusercontent.com"
                     data-context="signin"
                     data-ux_mode="popup"
@@ -23,7 +23,7 @@ export default function Login() {
                     data-text="signin_with"
                     data-size="large"
                     data-logo_alignment="left">
-                </div>
+                </div> */}
             </div>
         </div>
      </div>

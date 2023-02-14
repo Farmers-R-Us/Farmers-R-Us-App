@@ -50,7 +50,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -89,8 +89,7 @@ module.exports = {
     },
     port: 8080,
     proxy: {
-      context: ['/api'],
-      target: 'http://localhost:3000',
+      '/' : 'http://localhost:3000',
     },
-  },
+  }
 };

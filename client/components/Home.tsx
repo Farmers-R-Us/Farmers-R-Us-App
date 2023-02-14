@@ -7,10 +7,11 @@ export default function Home() {
 
     return (
         <>
-            <Header />
-            {/* ternary */}
+          <h2>hello world</h2>
+            {/* <Header />
+            ternary
             <Customer />
-            {/* <Admin /> */}
+            <Admin /> */}
         </>
     )
 
