@@ -14,5 +14,9 @@ router.post('/users', userController.createUser, (req, res) => {
 router.post('/inventory', inventoryController.insertInventory, (req, res) => {
   return res.status(200).json('Inserted into Inventory');
 });
+// GET INVENTORY
+router.get('/inventory', inventoryController.getInventory, (req, res) => {
+  return res.status(200).json('Received Get Request');
+});
 
 export { router };
