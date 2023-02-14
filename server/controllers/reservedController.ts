@@ -13,8 +13,6 @@ const reservedController: controller = {
 
 reservedController.insertReserved = (req, res, next) => {};
 
-reservedController.getReserved = (req, res, next) => {
-    
-}
+reservedController.getReserved = (req, res, next) => {};
 
 export { reservedController };

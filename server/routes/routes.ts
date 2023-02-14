@@ -21,5 +21,5 @@ router.get('/inventory', inventoryController.getInventory, (req, res) => {
 });
 
 // RESERVE PRODUCT
-router.post('/reserve');
+
 export { router };
