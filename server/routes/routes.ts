@@ -8,8 +8,8 @@ router.post('/', userController.createUser, (req, res) => {
 });
 
 // INSERT INTO INVENTORY
-// router.post('/inventory', userController.insertInventory, (req, res) => {
-//   return res.status(200).json('Inserted into Inventory');
-// });
+router.post('/inventory', userController.insertInventory, (req, res) => {
+  return res.status(200).json('Inserted into Inventory');
+});
 
 export { router };
