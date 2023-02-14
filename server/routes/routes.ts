@@ -4,6 +4,7 @@ const { userController } = require('../controllers/userController.ts');
 const {
   inventoryController,
 } = require('../controllers/inventoryController.ts');
+const { reservedController } = require('../controllers/reservedController.ts');
 
 // CREATE USER
 router.post('/users', userController.createUser, (req, res) => {
@@ -19,4 +20,6 @@ router.get('/inventory', inventoryController.getInventory, (req, res) => {
   return res.status(200).json(res.locals.inventory);
 });
 
+// RESERVE PRODUCT
+router.post('/reserve');
 export { router };
