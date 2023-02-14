@@ -18,8 +18,8 @@ userController.createUser = (req, res, next) => {
     INSERT INTO users (gmail, isadmin, created_at, strikes, isblacklisted)
     VALUES ('${gmail}','${isadmin}','${created_at}','${strikes}','${isblacklisted}')`;
   db.query(queryString)
-    .then((res) => {
-      console.log(res);
+    .then((response) => {
+      console.log(response);
     })
     .catch((err) => {
       console.log(err);

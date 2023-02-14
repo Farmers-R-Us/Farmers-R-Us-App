@@ -27,9 +27,8 @@ inventoryController.getInventory = (req, res, next) => {
   const queryString = `
     SELECT * FROM "inventory" ORDER BY id`;
   db.query(queryString)
-    .then((res) => {
-      console.log(res.rows);
-    //   res.locals.inventory = res.rows;
+    .then((response) => {
+      res.locals.inventory = response.rows;
       return next();
     })
     .catch((err) => {

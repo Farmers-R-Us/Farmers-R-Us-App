@@ -16,7 +16,7 @@ router.post('/inventory', inventoryController.insertInventory, (req, res) => {
 });
 // GET INVENTORY
 router.get('/inventory', inventoryController.getInventory, (req, res) => {
-  return res.status(200).json('Received Get Request');
+  return res.status(200).json(res.locals.inventory);
 });
 
 export { router };
