@@ -1,21 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 export default function Customer() {
-    const fetchData = (url) => {
+    useEffect(() => {
+            const fetchData = (url) => {
             fetch(url)
             .then((response) => response.json())
             .then((data) => console.log(data))
             .catch((error) => {console.log("error from fetchData()", error)})
     };
-
-    /* 
-    useEffect(())
+         fetchData("http://localhost:3000/api/inventory")
+    })
     
-    
-    
-    
-    
-    */
 
 
     return (
