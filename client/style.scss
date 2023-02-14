@@ -1,0 +1,54 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 50px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+
+  height: 50rem;
+  min-width: 50rem;
+  max-width: 80%;
+  margin: auto;
+  border: 1px solid black; 
+}
+// .main-bg {
+//   height: 50px;
+//   width: 50px;
+//   background-image: url('./assets/background_marketv2.jpg'); 
+
+// }
+
+.whiteModal {
+  border: red solid 2px;
+  height: 50%;
+  width: 600px;
+  background-color: rgba(white, $alpha: 0.8);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navBar {
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  background: #6B911B;
+  align-items: center;
+  padding: 20px;
+}
+
+.btn {
+  width: 8rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background: #D9D40C;
+}
