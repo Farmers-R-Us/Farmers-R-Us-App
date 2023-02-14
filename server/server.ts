@@ -1,8 +1,8 @@
 const express = require('express');
+const path = require('path');
+import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 
 const app = express();
-const path = require('path');
-
 const { router: routes } = require('./routes/routes.ts');
 
 app.use(express.json());
@@ -10,9 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', routes);
 
-app.use('*', (req, res) => res.sendStatus(404));
+app.use('*', (req: Request, res: Response) => res.sendStatus(404));
 
-app.use((err, req, res, next) => {
+app.use((err:ErrorRequestHandler, req: Request, res:Response, next:NextFunction) => {
   const defaultError = {
     log: 'Express error handler caught unknown middleware error',
     status: 400,
@@ -26,5 +26,4 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(3000, () => console.log('Listening on port 3000'));
-
-module.exports = app;
+export { app }

@@ -1,13 +1,40 @@
+// {
+//     "compilerOptions": {
+//       "outDir": "./dist/",
+//       "noImplicitAny": true,
+//       "module": "es6",
+//       "target": "es6",
+//       "jsx": "react",
+//       "allowJs": true,
+//       "moduleResolution": "node",
+//       "esModuleInterop": true,
+//       "lib": ["es6", "es5", "dom"]
+//     }
+// }
+
 {
-    "compilerOptions": {
-      "outDir": "./dist/",
-      "noImplicitAny": true,
-      "module": "es6",
-      "target": "es6",
-      "jsx": "react",
-      "allowJs": true,
-      "moduleResolution": "node",
-      "esModuleInterop": true,
-      "lib": ["es6", "es5", "dom"]
-    }
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "module": "CommonJS",
+    "isolatedModules": true,
+    "noEmit": false,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+  "ts-node": {
+    "esm": true
+  }
 }

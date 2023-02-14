@@ -1,9 +1,12 @@
-const express = require('express');
+//const express = require('express');
+import express from 'express';
+import {Request, Response} from 'express';
+import { userController } from '../controllers/userController';
 const router = express.Router();
-const { userController } = require('../controllers/userController.ts');
+//const { userController } = require('../controllers/userController.ts');
 
 // CREATE USER
-router.post('/', userController.createUser, (req, res) => {
+router.post('/', userController.createUser, (req: Request, res: Response) => {
   return res.status(200).json('Created User');
 });
 
@@ -12,4 +15,5 @@ router.post('/', userController.createUser, (req, res) => {
 //   return res.status(200).json('Inserted into Inventory');
 // });
 
-export { router };
+//export { router };
+export {router };
