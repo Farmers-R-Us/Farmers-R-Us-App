@@ -1,14 +1,11 @@
 const express = require('express');
 const path = require('path');
-import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
-
-const app = express();
 const { router: routes } = require('./routes/routes.ts');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', routes);
+app.use('/api', routes);
 
 app.use('*', (req: Request, res: Response) => res.sendStatus(404));
 
