@@ -87,9 +87,10 @@ module.exports = {
       publicPath: '/build',
       directory: path.join(__dirname, 'build'),
     },
+    historyApiFallback: true,
     port: 8080,
     proxy: {
-      '/' : 'http://localhost:3000',
+      '/api' : 'http://localhost:3000',
     },
   }
 };
