@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors')
 import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 
 const app = express();
 const { router: routes } = require('./routes/routes.ts');
+
+app.use(cors())
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

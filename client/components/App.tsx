@@ -7,7 +7,7 @@ import Home from './Home';
 
 export default function App() {
     return (
-        <div>
+        <div className='full-container'>
             {/* <Header /> */}
             {/* <h3>Hello world</h3> */}
             <Routes>
