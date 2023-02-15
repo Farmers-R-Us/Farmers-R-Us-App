@@ -68,6 +68,11 @@ module.exports = {
         test: /.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        exclude: /node_modules/,
+        use: ['file-loader'],
+      }
     ],
   },
   resolve: {
