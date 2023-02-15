@@ -1,12 +1,12 @@
-//const { Pool } = require('pg');
-import {Pool} from 'pg'
+// @ts-ignore
+const { Pool } = require('pg');
 const PG_URI =
   'postgres://rylkspcj:bpBJboDn79Fkg-yHdsiNDBHqpKIEtOkP@raja.db.elephantsql.com/rylkspcj';
 const pool = new Pool({
   connectionString: PG_URI,
 });
 
-export default {
+module.exports = {
   query: (text, params, callback) => {
     console.log('executed query', text);
     return pool.query(text, params, callback);
