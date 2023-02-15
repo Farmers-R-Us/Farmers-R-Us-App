@@ -1,39 +1,51 @@
-import React, {useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import PaginatedProducts from './PaginatedProducts';
 
 export default function Customer() {
-    useEffect(() => {
-            const fetchData = (url) => {
-            fetch(url)
-            .then((response) => response.json())
-            .then((data) => console.log(data))
-            .catch((error) => {console.log("error from fetchData()", error)})
+  // let data = [];
+  let responseData;
+  let [data, setData] = useState([]);
+
+  useEffect(() => {
+    // fetch the inventory
+    const URL = 'http://localhost:3000/api/inventory';
+
+    const fetchData = (url) => {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('form within fetch', data);
+          responseData = data;
+          setData(data);
+        })
+        .catch((error) => {
+          console.log('error from fetchData()', error);
+        });
     };
-         fetchData("http://localhost:3000/api/inventory")
-    })
-    
 
+    fetchData(URL);
+  }, []);
 
-    return (
-        <h3>
-            List of all available products 
-        </h3>
+  return (
+    <>
+      <h3>List of all available products</h3>
+      {console.log('from parent', data)}
+      <PaginatedProducts data={responseData} />
+    </>
 
-        // pull all available proudcts from db - need a GET endpoint
-        
-        //<PaginatedProducts /> component:
+    //<PaginatedProducts /> component:
 
-                // <ProductCard /> component:
-                    // product image
-                    // product name 
-                    // product unit 
-                    // quantity 
+    // <ProductCard /> component:
+    // product image
+    // product name
+    // product unit
+    // quantity
 
-                // <AddToCart /> component:
-                    // button: add to cart
-                        // value field (num)
-            
-            // forward arrow (down-arrow on mobile) - get icons from react-icons or whatever that was 
-            // backward arrow (up-arrow on mobile)
+    // <AddToCart /> component:
+    // button: add to cart
+    // value field (num)
 
-    )
+    // forward arrow (down-arrow on mobile) - get icons from react-icons or whatever that was
+    // backward arrow (up-arrow on mobile)
+  );
 }
