@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import PaginatedProducts from './PaginatedProducts';
 
 export default function Customer() {
-  // let data = [];
-  let responseData;
-  let [data, setData] = useState([]);
+  const [data, setData] = useState<any>();
+  const [startRenderIndex, setStartRenderIndex] = useState<number>(0);
+  const [endRenderIndex, setEndRenderIndex] = useState<number>(4);
+  const [renderArr, setRenderArr] = useState<any[]>([]);
 
   useEffect(() => {
     // fetch the inventory
@@ -14,8 +15,6 @@ export default function Customer() {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          console.log('form within fetch', data);
-          responseData = data;
           setData(data);
         })
         .catch((error) => {
@@ -26,26 +25,60 @@ export default function Customer() {
     fetchData(URL);
   }, []);
 
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+      render();
+    }
+  }, [data, startRenderIndex]);
+
+  function next() {
+    if (data.length < endRenderIndex + 4) {
+      setEndRenderIndex(data.length);
+      setStartRenderIndex(data.length - 4);
+    } else {
+      setEndRenderIndex(endRenderIndex + 4);
+      setStartRenderIndex(startRenderIndex + 4);
+    }
+  }
+
+  function prev() {
+    if (startRenderIndex - 4 < 0) {
+      setEndRenderIndex(4);
+      setStartRenderIndex(0);
+    } else {
+      setEndRenderIndex(endRenderIndex - 4);
+      setStartRenderIndex(startRenderIndex - 4);
+    }
+  }
+
+  function render() {
+    console.log(startRenderIndex, endRenderIndex);
+    let newRenderArr: any[] = [];
+    for (let i = startRenderIndex; i < endRenderIndex; i++) {
+      newRenderArr.push(
+        <>
+          <PaginatedProducts data={data[i]} />
+        </>
+      );
+    }
+    setRenderArr(newRenderArr);
+  }
+
+  const handleNextClick = function () {
+    next();
+  };
+
+  const handlePrevClick = function () {
+    prev();
+  };
+
   return (
     <>
       <h3>List of all available products</h3>
-      {console.log('from parent', data)}
-      <PaginatedProducts data={responseData} />
+      <button onClick={handlePrevClick}>Prev</button>
+      <div>{renderArr}</div>
+      <button onClick={handleNextClick}>Next</button>
     </>
-
-    //<PaginatedProducts /> component:
-
-    // <ProductCard /> component:
-    // product image
-    // product name
-    // product unit
-    // quantity
-
-    // <AddToCart /> component:
-    // button: add to cart
-    // value field (num)
-
-    // forward arrow (down-arrow on mobile) - get icons from react-icons or whatever that was
-    // backward arrow (up-arrow on mobile)
   );
 }

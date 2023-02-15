@@ -1,33 +1,25 @@
 import React from 'react';
 
-// incoming props:
-// totalCount
-// currentRow
-// rowSize
-// onRowChange
-
-export default function Customer(props) {
-  const { totalCount, currentRow, maxRowSize, minRowSize, data } = props;
-
-  const handleNextClick = function () {};
-  const handlePrevClick = function () {};
-
-  const renderData = (data) => {
-    console.log('from renderdata', data);
-    return data;
-    // <ul>
-    //   {data.forEach((product) => {
-    //     <li>product[product_name]</li>;
-    //   })}
-    // </ul>;
-  };
+export default function Customer(props: any) {
+  const {
+    id,
+    product_name,
+    price,
+    unit,
+    total_quantity,
+    total_reserved_quantity,
+  } = props.data;
 
   return (
     <>
-      <button onClick={handlePrevClick}>Prev</button>
-      {/* display data[currentRow, currentRow+(either maxRowSize or minRowSize)] */}
-      {renderData(data)}
-      <button onClick={handleNextClick}>Next</button>
+      {/* img  */}
+      <ul>
+        <li>ID: {id}</li>
+        <li>Product Name: {product_name}</li>
+        <li>Price: {price}</li>
+        <li>Unit: {unit}</li>
+        <li>Available: {total_quantity - total_reserved_quantity}</li>
+      </ul>
     </>
   );
 }
