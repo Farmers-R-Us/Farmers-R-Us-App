@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PaginatedProducts from './PaginatedProducts';
+import DisplayInventory from './DisplayInventory';
 
 export default function Customer() {
   const [data, setData] = useState<any>();
@@ -58,7 +58,7 @@ export default function Customer() {
     for (let i = startRenderIndex; i < endRenderIndex; i++) {
       newRenderArr.push(
         <>
-          <PaginatedProducts data={data[i]} />
+          <DisplayInventory data={data[i]} />
         </>
       );
     }
