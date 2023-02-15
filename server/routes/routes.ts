@@ -1,7 +1,7 @@
 //const express = require('express');
 import express from 'express';
 import { Request, Response } from 'express';
-import { userController } from '../controllers/userController';
+import { userController, getUserFromOAuth, decodeOAuth } from '../controllers/userController';
 const router = express.Router();
 const {
   inventoryController,
@@ -33,5 +33,12 @@ router.get(
     return res.status(200).json(res.locals.inventory);
   }
 );
+
+router.post('/oAuth', decodeOAuth, getUserFromOAuth, (req, res) => {
+  console.log('This is res.locals: ', res.locals)
+  const {gmail, isadmin, strikes, isblacklisted} = res.locals.user;
+  const resBody = {gmail, isadmin, strikes, isblacklisted}
+  return res.status(200).send(resBody);
+})
 
 export { router };

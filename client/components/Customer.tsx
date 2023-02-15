@@ -2,13 +2,13 @@ import React, {useEffect} from 'react';
 
 export default function Customer() {
     useEffect(() => {
-            const fetchData = (url) => {
+        const fetchData = (url) => {
             fetch(url)
             .then((response) => response.json())
             .then((data) => console.log(data))
             .catch((error) => {console.log("error from fetchData()", error)})
-    };
-         fetchData("http://localhost:3000/api/inventory")
+        };
+        fetchData("http://localhost:3000/api/inventory")
     })
     
 
