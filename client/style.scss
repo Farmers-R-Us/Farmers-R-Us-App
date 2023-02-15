@@ -54,3 +54,50 @@ h2 {
   border-radius: 5px;
   background: #D9D40C;
 }
+
+.smallBtn {
+  width: 8rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #6B911B;
+  margin-bottom: 8px;
+}
+
+.input {
+  margin-bottom: 8px;
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.adminPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adminTitle {
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
+
+.inventoryBox {
+  display: flex;
+  border: gray 2px solid;
+  border-radius: 5px;
+  height: 150px;
+  width: 800px;
+  padding: 30px;
+  justify-content: space-between;
+  font-size: 2rem;
+  background-color: #D9D40C;
+}
+
+.inventoryRight {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+}
