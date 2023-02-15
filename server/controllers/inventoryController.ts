@@ -29,7 +29,7 @@ inventoryController.getInventory = (req, res, next) => {
   db.query(queryString)
     .then((response) => {
       res.locals.inventory = response.rows;
-      console.log(res.locals.inventory);
+      //   console.log(res.locals.inventory);
       return next();
     })
     .catch((err) => {
