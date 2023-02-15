@@ -11,6 +11,8 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static(path.resolve(__dirname, 'assets')))
+
 app.use('/api', routes);
 
 app.use('*', (req: Request, res: Response) => res.sendStatus(404));
