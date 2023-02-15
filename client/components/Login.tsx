@@ -18,9 +18,8 @@ export default function Login() {
         }
         const serverResponse = await fetch('/api/oAuth', options).then(response => response.json());
         console.log('This is serverResponse: ', serverResponse)
-        localStorage.setItem('user', JSON.stringify(serverResponse));
         //redirect a user to the home page? 
-        navigate('/home');
+        navigate('/home', {state: serverResponse});
 ;    }
 
     return (
