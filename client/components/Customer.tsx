@@ -1,39 +1,84 @@
-import React, {useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import DisplayInventory from './DisplayInventory';
 
 export default function Customer() {
-    useEffect(() => {
-        const fetchData = (url) => {
-            fetch(url)
-            .then((response) => response.json())
-            .then((data) => console.log(data))
-            .catch((error) => {console.log("error from fetchData()", error)})
-        };
-        fetchData("http://localhost:3000/api/inventory")
-    })
-    
+  const [data, setData] = useState<any>();
+  const [startRenderIndex, setStartRenderIndex] = useState<number>(0);
+  const [endRenderIndex, setEndRenderIndex] = useState<number>(4);
+  const [renderArr, setRenderArr] = useState<any[]>([]);
 
+  useEffect(() => {
+    // fetch the inventory
+    const URL = 'http://localhost:3000/api/inventory';
 
-    return (
-        <h3>
-            List of all available products 
-        </h3>
+    const fetchData = (url) => {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+        })
+        .catch((error) => {
+          console.log('error from fetchData()', error);
+        });
+    };
 
-        // pull all available proudcts from db - need a GET endpoint
-        
-        //<PaginatedProducts /> component:
+    fetchData(URL);
+  }, []);
 
-                // <ProductCard /> component:
-                    // product image
-                    // product name 
-                    // product unit 
-                    // quantity 
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+      render();
+    }
+  }, [data, startRenderIndex]);
 
-                // <AddToCart /> component:
-                    // button: add to cart
-                        // value field (num)
-            
-            // forward arrow (down-arrow on mobile) - get icons from react-icons or whatever that was 
-            // backward arrow (up-arrow on mobile)
+  function next() {
+    if (data.length < endRenderIndex + 4) {
+      setEndRenderIndex(data.length);
+      setStartRenderIndex(data.length - 4);
+    } else {
+      setEndRenderIndex(endRenderIndex + 4);
+      setStartRenderIndex(startRenderIndex + 4);
+    }
+  }
 
-    )
+  function prev() {
+    if (startRenderIndex - 4 < 0) {
+      setEndRenderIndex(4);
+      setStartRenderIndex(0);
+    } else {
+      setEndRenderIndex(endRenderIndex - 4);
+      setStartRenderIndex(startRenderIndex - 4);
+    }
+  }
+
+  function render() {
+    console.log(startRenderIndex, endRenderIndex);
+    let newRenderArr: any[] = [];
+    for (let i = startRenderIndex; i < endRenderIndex; i++) {
+      newRenderArr.push(
+        <>
+          <DisplayInventory data={data[i]} />
+        </>
+      );
+    }
+    setRenderArr(newRenderArr);
+  }
+
+  const handleNextClick = function () {
+    next();
+  };
+
+  const handlePrevClick = function () {
+    prev();
+  };
+
+  return (
+    <>
+      <h3>List of all available products</h3>
+      <button onClick={handlePrevClick}>Prev</button>
+      <div>{renderArr}</div>
+      <button onClick={handleNextClick}>Next</button>
+    </>
+  );
 }

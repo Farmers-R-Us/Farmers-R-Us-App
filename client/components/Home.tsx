@@ -4,7 +4,6 @@ import Header from './Header';
 import Admin from './Admin';
 import { useLocation } from 'react-router-dom'
 
-
 export default function Home() { 
     const {state} = useLocation();
     const {gmail, isadmin, strikes, isblacklisted} = state;
