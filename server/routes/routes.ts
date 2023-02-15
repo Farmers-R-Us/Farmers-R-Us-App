@@ -34,6 +34,22 @@ router.get(
   }
 );
 
+// GET RESERVED PRODUCTS
+router.get(
+  '/reserved',
+  reservedController.getReserved,
+  (req: Request, res: Response) => {
+    return res.status(200).json(res.locals.reserved);
+  }
+);
+// INSERT INTO RESERVED
+router.post(
+  '/reserved',
+  reservedController.insertReserved,
+  (req: Request, res: Response) => {
+    return res.status(200).json('Received Request');
+  }
+);
 router.post('/oAuth', decodeOAuth, getUserFromOAuth, (req, res) => {
   console.log('This is res.locals: ', res.locals)
   const {gmail, isadmin, strikes, isblacklisted} = res.locals.user;
