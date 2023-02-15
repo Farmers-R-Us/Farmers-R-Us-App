@@ -58,7 +58,7 @@ export default function Customer() {
     for (let i = startRenderIndex; i < endRenderIndex; i++) {
       newRenderArr.push(
         <>
-          <DisplayInventory data={data[i]} />
+          <DisplayInventory data={data[i]} key={`'AA${i}'`} />
         </>
       );
     }
